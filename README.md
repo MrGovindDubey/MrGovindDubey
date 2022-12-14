@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Govind dubey</h1>
 <h3 align="center">A passionate Cyber security Expert & Student at NITJ</h3>
-<img align="right" alt="Coding" width="400" src="https://www.odni.gov/ncsc/e-Learning_CyberExplore/images/earth.gif">
+<img align="right" alt="Coding" width="400" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWxNtZBb7K0LQ87Dm1wDu4lYGL66VV9wNQUqyY6kcPSiOenT75toQrW3ahach7jHP-4kM&usqp=CAU">
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mrgovinddubey&label=Profile%20views&color=0e75b6&style=flat" alt="mrgovinddubey" /> </p>
 
