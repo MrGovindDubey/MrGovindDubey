@@ -8,9 +8,9 @@
 
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p> <img align="right" alt="Coding" width="400" src="https://raw.githubusercontent.com/PolarBearGG/PolarBearGG/master/web-developer.gif">
 
-- 🌱 I’m currently learning **Java, Java Script, Php, Css**
+- 🌱 I’m currently learning **Java, Rust, Css**
 
-- 📫 How to reach me **Govinddubey661@gmail.com**
+- 📫 How to reach me **Govinddubeycse@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
