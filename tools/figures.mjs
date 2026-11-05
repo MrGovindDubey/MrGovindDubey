@@ -168,16 +168,106 @@ const parts = (P) => { const a = []; return { add: (x, y, html) => a.push({ d: k
   page('genai', 'AI accelerator with stacked memory', o);
 }
 
-// ---------- small building blocks for the PQBlocks box ----------
+// ---------- small structures for the name and PQBlocks boxes ----------
+const fragment = (file, w, h, label, P, html) => writeFileSync(`${OUT}/${file}.svg`, k.figureSvg({ width: w, height: h, label, standalone: true, body: html.join('') }));
 {
-  const w = 250, h = 112, heights = [[3, 2, 1], [2, 3, 2], [1, 2, 4]], C = 22, G = 3;
-  const P = k.fitProjection([[-40, -40, 0], [40, 40, 0], [-40, 40, 92], [40, -40, 92]], w, h, { pad: 4 });
-  const q = [];
-  heights.forEach((row, i) => row.forEach((n, j) => {
-    const [x, y] = [-37 + i * (C + G), -37 + j * (C + G)];
-    let s = ''; for (let z = 0; z < n; z++) s += S(k.slabOf({ x, y, w: C, d: C, r: 1 }, z * (C * 0.82), C * 0.76, P, 2, 0.6), { tone: z === n - 1 ? 'hi' : 'mid' });
-    q.push({ d: k.depthOf([x, y, 0], P), s });
+  // PQBlocks: a base plate carrying a stepped field of blocks, with traces between them
+  const w = 340, h = 150, C = 15, G = 2.5, B = { x: -52, y: -52, w: 104, d: 104, r: 3 };
+  const P = k.fitProjection([...k.boxCorners(B, -4, 0), [-52, 52, 66], [52, -52, 66]], w, h, { pad: 4 });
+  const o = [S(k.slabOf(B, -4, 4, P, 4, 0.7), { tone: 'lo' }), L(k.planOutline(k.insetPlan(B, 3), 0, P), { tone: 'faint' })];
+  const H = [[4, 3, 2, 1, 2], [3, 2, 1, 2, 1], [2, 1, 3, 1, 2], [1, 2, 1, 2, 3], [2, 1, 2, 3, 4]];
+  const q = parts(P);
+  H.forEach((row, i) => row.forEach((n, j) => {
+    const [x, y] = [-44 + i * (C + G), -44 + j * (C + G)];
+    let c = ''; for (let z = 0; z < n; z++) c += S(k.slabOf({ x, y, w: C, d: C, r: 0.8 }, z * 12, 10.8, P, 2, 0.4), { tone: z === n - 1 ? 'hi' : 'mid' });
+    q.add(x, y, c);
   }));
-  writeFileSync(`${OUT}/blocks.svg`, k.figureSvg({ width: w, height: h, label: 'Stacked building blocks', standalone: true, body: q.sort((a, b) => a.d - b.d).map((p) => p.s).join('') }));
+  fragment('blocks', w, h, 'A field of stacked building blocks', P, [...o, ...q.flush()]);
+}
+{
+  // Name: a GitHub repository as a working machine: file tree, branches, merges, PR gate, CI rack, object store, release
+  const w = 480, h = 196, B = { x: -170, y: -82, w: 340, d: 164, r: 3 }, INK = '#f0f6fc';
+  const P = k.fitProjection([...k.boxCorners(B, -5, 0), [150, -70, 54], [-20, -60, 34]], w, h, { pad: 2, azimuth: 40 });
+  const o = [`<style>
+    @keyframes gl{0%,35%{opacity:.12}45%,80%{opacity:1}100%{opacity:.12}}
+    @keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+    .seq{opacity:.12;animation:gl 6s linear infinite}.tw{opacity:.15;animation:tw 3.4s ease-in-out infinite}
+    @media (prefers-reduced-motion:reduce){.seq,.tw{animation:none;opacity:1}}
+  </style>`];
+  o.push(S(k.slabOf(B, -5, 2, P, 3, 0.4), { tone: 'lo' }), S(k.slabOf(k.insetPlan(B, 1), -3, 3, P, 3, 0.5), { tone: 'mid' }), L(k.planOutline(k.insetPlan(B, 4), 0, P), { tone: 'faint' }));
+  const q = parts(P), over = [], light = (x, y, z, r, cls, delay) => over.push(`<circle class="${cls}" style="animation-delay:${delay}s" cx="${k.iso([x, y, z], P)[0].toFixed(1)}" cy="${k.iso([x, y, z], P)[1].toFixed(1)}" r="${r}" fill="${INK}"/>`);
+
+  // file tree: folders and files as tiles joined by connectors
+  const tree = [[0, 0, 12], [1, 1, 9], [2, 2, 7], [2, 3, 7], [1, 4, 9], [2, 5, 7], [2, 6, 7], [0, 7, 12], [1, 8, 9], [1, 9, 9]];
+  tree.forEach(([d, r, wd]) => {
+    const [x, y] = [-162 + d * 7, -74 + r * 8];
+    if (d) o.push(L(k.onTop([[x - 4, y - 4], [x - 4, y + 2.6], [x, y + 2.6]], 0, P), { tone: 'lo' }));
+    q.add(x, y, S(k.slabOf({ x, y, w: wd, d: 5.4, r: 0.4 }, 0, d ? 1.3 : 2.4, P, 2, 0.2), { tone: d ? 'mid' : 'hi' }));
+  });
+  // contribution grid along the front edge
+  for (let i = 0; i < 40; i++) for (let j = 0; j < 4; j++) {
+    const [x, y] = [-160 + i * 5.6, 56 + j * 5.6], n = (i * 7 + j * 13) % 5;
+    q.add(x, y, S(k.slabOf({ x, y, w: 4.4, d: 4.4, r: 0.3 }, 0, 0.5 + n * 0.75, P, 2), { tone: n > 2 ? 'hi' : n ? 'mid' : 'lo' }));
+    if (n > 3) light(x + 2.2, y + 2.2, 0.5 + n * 0.75, 1, 'tw', ((i * 3 + j) % 17) * 0.2);
+  }
+  // branches: each is a track with commits on it and packets travelling along it
+  const MAIN = 0, TRACKS = [
+    { pts: [[-104, MAIN], [122, MAIN]], c: [-96, -84, -72, -40, -22, 2, 24, 44, 62, 84, 104], dur: 7, n: 3 },
+    { pts: [[-76, MAIN], [-62, -28], [18, -28], [34, MAIN]], c: [-52, -38, -24, -10, 6], dur: 6, n: 2 },
+    { pts: [[-44, -28], [-32, -48], [-4, -48], [8, -28]], c: [-24, -13, -3], dur: 5, n: 1 },
+    { pts: [[-30, MAIN], [-16, 28], [50, 28], [66, MAIN]], c: [-4, 10, 24, 38], dur: 6.5, n: 2 },
+    { pts: [[70, MAIN], [82, -24], [102, -24], [114, MAIN]], c: [88, 98], dur: 4, n: 1 },
+  ];
+  const packets = [];
+  TRACKS.forEach((t, ti) => {
+    const y0 = (p) => p; o.push(L(k.onTop(t.pts.map(([x, y]) => [x, y - 1.4]), 0, P), { tone: 'mid' }), L(k.onTop(t.pts.map(([x, y]) => [x, y + 1.4]), 0, P), { tone: 'lo' }));
+    for (let n = 0; n < t.n; n++) packets.push(`<circle r="2.1" fill="${INK}"><animateMotion dur="${t.dur}s" begin="${-(n * t.dur) / t.n - ti * 0.7}s" repeatCount="indefinite" path="${k.onTop(t.pts, 3, P)}"/></circle>`);
+    const yAt = (x) => { for (let i = 1; i < t.pts.length; i++) { const [a, b] = [t.pts[i - 1], t.pts[i]]; if (x >= a[0] && x <= b[0]) return a[1] + ((b[1] - a[1]) * (x - a[0])) / (b[0] - a[0] || 1); } return t.pts[0][1]; };
+    t.c.forEach((x, ci) => {
+      const y = yAt(x), tall = ti ? 3 : 4.2;
+      q.add(x, y, S(k.cylinder(x, y, 3.8, 0, 1, P, 12, 0.2), { tone: 'lo' }) + S(k.cylinder(x, y, 2.6, 1, tall, P, 12, 0.2), { tone: ti ? 'mid' : 'hi' }));
+      light(x, y, 1 + tall, 1.1, 'seq', ((ci + ti) * 0.45).toFixed(2));
+    });
+  });
+  // merge junctions
+  for (const [x, y] of [[34, MAIN], [66, MAIN], [114, MAIN], [8, -28]]) q.add(x, y, S(k.slabOf({ x: x - 5.5, y: y - 5.5, w: 11, d: 11, r: 0.8 }, 0, 1.8, P, 2, 0.3), { tone: 'lo' }) + S(k.slabOf({ x: x - 3.6, y: y - 3.6, w: 7.2, d: 7.2, r: 0.6 }, 1.8, 6, P, 2, 0.4), { tone: 'hi' }));
+  // PR gate: a gantry over the merge point with its required checks
+  const gx = 34;
+  q.add(gx - 1, -14, L(k.rise([gx - 10, -14], 0, 30, P), { tone: 'hi' }) + L(k.rise([gx + 10, -14], 0, 30, P), { tone: 'hi' }) + S(k.slabOf({ x: gx - 13, y: -17, w: 26, d: 6, r: 0.5 }, 30, 4, P, 2, 0.3), { tone: 'hi' }));
+  for (let i = 0; i < 4; i++) light(gx - 9 + i * 6, -14, 34, 1.3, 'seq', (2 + i * 0.5).toFixed(1));
+  // CI rack: pipeline stages with status lights running in order
+  let rack = S(k.slabOf({ x: 56, y: -74, w: 34, d: 40, r: 0.8 }, 0, 2, P, 2, 0.3), { tone: 'lo' });
+  for (let u = 0; u < 6; u++) { rack += S(k.slabOf({ x: 59, y: -71, w: 28, d: 34, r: 0.3 }, 2 + u * 7, 6.2, P, 2, 0.2), { tone: u % 2 ? 'mid' : 'hi' }); for (let l = 0; l < 3; l++) light(66 + l * 6, -37, 5 + u * 7, 0.9, 'seq', (u * 0.55 + l * 0.2).toFixed(2)); }
+  q.add(73, -54, rack);
+  // object store: pack drawers of blobs, trees and commits
+  const towers = [[126, -74, 8], [126, -42, 6], [126, -10, 4], [148, -74, 5], [148, -42, 7]];
+  towers.forEach(([x, y, n]) => { let c = S(k.slabOf({ x, y, w: 18, d: 28, r: 0.5 }, 0, 1.5, P, 2, 0.2), { tone: 'lo' }); for (let u = 0; u < n; u++) c += S(k.slabOf({ x: x + 1, y: y + 1, w: 16, d: 26, r: 0.3 }, 1.5 + u * 6, 5.2, P, 2, 0.2), { tone: u % 2 ? 'mid' : 'hi' }); q.add(x + 9, y + 14, c); });
+  // original repository emblem: a raised plate carrying a branch-and-merge glyph
+  {
+    const E = { x: -116, y: -78, w: 46, d: 46, r: 3 }, Z = 6, cx = E.x + 23, cy = E.y + 23;
+    q.add(cx, cy, S(k.slabOf(E, 0, 3, P, 3, 0.5), { tone: 'lo' }) + S(k.slabOf(k.insetPlan(E, 3), 3, 3, P, 3, 0.5), { tone: 'hi' })
+      + L(k.planOutline(k.insetPlan(E, 6), Z, P), { tone: 'lo' })
+      + L(k.lineOnTop([cx - 8, cy - 11], [cx - 8, cy + 11], Z, P), { tone: 'lit' })
+      + L(k.onTop([[cx + 8, cy - 11], [cx + 8, cy - 3], [cx - 8, cy + 5]], Z, P), { tone: 'lit' })
+      + S(k.cylinder(cx - 8, cy - 11, 3, Z, 2, P, 14, 0.2), { tone: 'mid' }) + S(k.cylinder(cx - 8, cy + 11, 3, Z, 2, P, 14, 0.2), { tone: 'mid' }) + S(k.cylinder(cx + 8, cy - 11, 3, Z, 2, P, 14, 0.2), { tone: 'mid' }));
+    [[cx - 8, cy - 11], [cx - 8, cy + 11], [cx + 8, cy - 11]].forEach(([x, y], i) => light(x, y, Z + 2, 1.2, 'seq', (i * 0.6).toFixed(1)));
+  }
+  // original mascot: a small angular circuit-cat on its own plate, with trace whiskers
+  {
+    const E = { x: 84, y: 42, w: 32, d: 32, r: 2 }, Z = 5, cx = E.x + 16, cy = E.y + 16;
+    const head = [[-8, -3], [-9, -10], [-3, -6], [3, -6], [9, -10], [8, -3], [8, 4], [3, 9], [-3, 9], [-8, 4]].map(([x, y]) => [cx + x, cy + y]);
+    q.add(cx, cy, S(k.slabOf(E, 0, 2, P, 3, 0.4), { tone: 'lo' }) + S(k.slabOf(k.insetPlan(E, 2), 2, 3, P, 3, 0.4), { tone: 'mid' })
+      + L(k.onTop(head, Z, P, true), { tone: 'lit' })
+      + L(k.lineOnTop([cx - 8, cy + 1], [cx - 13, cy - 1], Z, P), { tone: 'hi' }) + L(k.lineOnTop([cx - 8, cy + 3], [cx - 13, cy + 4], Z, P), { tone: 'hi' })
+      + L(k.lineOnTop([cx + 8, cy + 1], [cx + 13, cy - 1], Z, P), { tone: 'hi' }) + L(k.lineOnTop([cx + 8, cy + 3], [cx + 13, cy + 4], Z, P), { tone: 'hi' })
+      + L(k.onTop([[cx - 1.5, cy + 3], [cx, cy + 4.5], [cx + 1.5, cy + 3]], Z, P), { tone: 'hi' }));
+    light(cx - 3.5, cy - 1, Z, 1.1, 'seq', '0.3');
+    light(cx + 3.5, cy - 1, Z, 1.1, 'seq', '0.3');
+  }
+  // release tag and HEAD marker on the newest commit of main
+  q.add(122, 0, L(k.rise([122, 0], 0, 26, P), { tone: 'hi' }) + S(k.slabOf({ x: 122, y: -1.2, w: 15, d: 2.4, r: 0.3 }, 26, 7, P, 2, 0.2), { tone: 'hi' }));
+  for (const x of [-84, -22, 62]) q.add(x, 9, L(k.rise([x, 9], 0, 14, P), { tone: 'hi' }) + S(k.slabOf({ x: x - 0.8, y: 8, w: 8, d: 2.2, r: 0.3 }, 14, 4, P, 2), { tone: 'mid' }));
+  o.push(...q.flush(), ...over, ...packets);
+  writeFileSync(`${OUT}/name-structures.svg`, k.figureSvg({ width: w, height: h, label: 'A GitHub repository as a working machine', standalone: true, body: o.join('') }));
 }
 console.log('figures written');

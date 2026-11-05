@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" src="assets/name-dark.svg" alt="Govind Dubey">
+  <img width="100%" src="assets/name-dark.svg" alt="Govind Dubey" title="Inside this repository machine:&#10;- File tree&#10;- Commit graph and branches&#10;- Pull request gate&#10;- CI pipeline rack&#10;- Object store&#10;- Release tag&#10;- Contribution grid">
 </p>
 
 <p align="center">
@@ -14,8 +14,8 @@
 </p>
 
 <p align="center">
-  <img alt="GitHub stars" src="https://img.shields.io/github/stars/MrGovindDubey?style=for-the-badge&logo=github&logoColor=white&label=stars&labelColor=161b22&color=30363d&affiliations=OWNER">
-  <img alt="Profile views" src="https://komarev.com/ghpvc/?username=MrGovindDubey&style=for-the-badge&color=30363d&label=PROFILE+VIEWS">
+  <img height="38" alt="GitHub stars" src="https://img.shields.io/github/stars/MrGovindDubey?style=for-the-badge&logo=github&logoColor=white&label=stars&labelColor=161b22&color=30363d&affiliations=OWNER">
+  <img height="38" alt="Profile views" src="https://komarev.com/ghpvc/?username=MrGovindDubey&style=for-the-badge&color=30363d&label=PROFILE+VIEWS">
 </p>
 
 I'm a cybersecurity professional working on post-quantum cryptography, Gen AI, IoT, development and Linux.
@@ -89,9 +89,13 @@ KDE Plasma widgets, shell tooling and systems work.
 
 <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MrGovindDubey&theme=github_dark" alt="Profile summary with contributions over the last year.">
 
-<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MrGovindDubey&theme=github_dark" alt="GitHub stats: stars, commits, pull requests, issues and contributions."> <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=MrGovindDubey&theme=github_dark&utcOffset=5.5" alt="Commits by hour of day.">
-
-<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=MrGovindDubey&theme=github_dark" alt="Top languages by repository."> <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=MrGovindDubey&theme=github_dark" alt="Top languages by commit.">
+<p align="center">
+  <img alt="Total stars" src="https://img.shields.io/github/stars/MrGovindDubey?style=for-the-badge&label=Total%20Stars&labelColor=161b22&color=30363d&affiliations=OWNER">
+  <img alt="Total Commits: 369" src="https://img.shields.io/badge/Total_Commits-369-30363d?style=for-the-badge&labelColor=161b22">
+  <img alt="Total PRs: 14" src="https://img.shields.io/badge/Total_PRs-14-30363d?style=for-the-badge&labelColor=161b22">
+  <img alt="Total Issues: 2" src="https://img.shields.io/badge/Total_Issues-2-30363d?style=for-the-badge&labelColor=161b22">
+  <img alt="Contributed to: 32" src="https://img.shields.io/badge/Contributed_to-32-30363d?style=for-the-badge&labelColor=161b22">
+</p>
 
 <p align="center">
   <img width="62%" src="https://streak-stats.demolab.com/?user=MrGovindDubey&hide_border=true&background=0D1117&ring=F0F6FC&fire=F0F6FC&currStreakLabel=F0F6FC&sideLabels=9198A1&dates=656C76&currStreakNum=F0F6FC&sideNums=F0F6FC&stroke=30363D" alt="Contribution streak card.">

@@ -1,6 +1,6 @@
 // Renders the monochrome images in assets/, dark to match the Gitly and GitSkins cards. No dependencies; text is vector paths.
 // Static: run by hand when the content changes. Live cards on the page come from Gitly and GitSkins.
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 const root = new URL('..', import.meta.url).pathname;
 const FONTS = JSON.parse(readFileSync(new URL('glyphs.json', import.meta.url)));
@@ -48,25 +48,35 @@ function panel(s, t, { flow = true } = {}) {
   s.add(`<path d="M${m} ${m + b}V${m}H${m + b}M${W - m - b} ${m}H${W - m}V${m + b}M${W - m} ${H - m - b}V${H - m}H${W - m - b}M${m + b} ${H - m}H${m}V${H - m - b}" fill="none" stroke="${t.faint}"/>`);
 }
 
-// ---------- name banner, dark so it reads on both GitHub themes ----------
+// ---------- name and PQBlocks boxes, each with small Anatomy-kit structures ----------
+const inline = (file, x, y) => readFileSync(new URL(file, import.meta.url), 'utf8').replace('<svg ', `<svg x="${x}" y="${y}" width="340" height="150" `);
 function banner(t) {
-  const W = 860, H = 120;
-  const s = new Svg(W, H, 'Govind Dubey');
-  panel(s, t, { flow: false });
-  s.add(s.text('Govind Dubey', W / 2, 80, 62, 's', t.ink, { anchor: 'middle', track: -1 }));
+  const W = 860, H = 210;
+  const s = new Svg(W, H, 'Govind Dubey: cybersecurity, post-quantum, Gen AI, IoT, development and Linux');
+  panel(s, t);
+  s.add(readFileSync(new URL('name-structures.svg', import.meta.url), 'utf8').replace('<svg ', `<svg x="${W - 500}" y="7" width="480" height="196" `));
+  // PLACEHOLDER: save your own icon as tools/board-icon.svg (light colour, no script) and it sits on the bottom-left plate.
+  const icon = new URL('board-icon.svg', import.meta.url);
+  if (existsSync(icon)) {
+    const svg = readFileSync(icon, 'utf8').replace(/<\?xml[^>]*>\s*/, '').replace(/<!DOCTYPE[^>]*>\s*/i, '');
+    if (/<script/i.test(svg)) throw new Error('board-icon.svg must not contain a script');
+    const open = svg.match(/<svg[^>]*>/)[0];
+    s.add(`<circle cx="620" cy="157" r="16" fill="${t.panel}" stroke="${t.dim}"/>`);
+    s.add(svg.replace(open, open.replace(/\s(width|height|x|y)="[^"]*"/g, '').replace('<svg', '<svg x="609" y="146" width="22" height="22"')));
+  }
+  s.add(s.text('GOVIND DUBEY', 34, 96, 40, 's', t.ink, { track: 1.2 }));
+  s.add(s.text('Cybersecurity professional', 34, 126, 16, 'b', t.dim));
+  s.add(s.text('Post-Quantum / Gen AI / IoT / Linux', 34, 154, 12.5, 'm', t.ink));
   save('name', t, s);
 }
-
-// ---------- PQBlocks box, with small Anatomy-kit structures ----------
 function pqblocks(t) {
-  const W = 860, H = 150;
+  const W = 860, H = 176;
   const s = new Svg(W, H, 'PQBlocks: verified building blocks for the post-quantum transition');
   panel(s, t);
-  const blocks = readFileSync(new URL('blocks.svg', import.meta.url), 'utf8').replace('<svg ', `<svg x="${W - 280}" y="19" width="250" height="112" `);
-  s.add(blocks);
-  s.add(s.text('PQBLOCKS', 34, 62, 36, 's', t.ink, { track: 1.5 }));
-  s.add(s.text('Verified building blocks for the post-quantum transition.', 34, 92, 16, 'b', t.dim));
-  s.add(s.text('29 open-source packages / Apache-2.0 / pqblocks.github.io', 34, 118, 12.5, 'm', t.ink));
+  s.add(inline('blocks.svg', W - 370, 13));
+  s.add(s.text('PQBLOCKS', 34, 76, 46, 's', t.ink, { track: 1.2 }));
+  s.add(s.text('Verified building blocks for the post-quantum transition.', 34, 108, 16, 'b', t.dim));
+  s.add(s.text('29 open-source packages / Apache-2.0 / pqblocks.github.io', 34, 136, 12.5, 'm', t.ink));
   save('pqblocks', t, s);
 }
 
