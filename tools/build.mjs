@@ -1,6 +1,5 @@
 // Renders the monochrome images in assets/, dark to match the Gitly and GitSkins cards. No dependencies; text is vector paths.
 // Static: run by hand when the content changes. Live cards on the page come from Gitly and GitSkins.
-import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const root = new URL('..', import.meta.url).pathname;
@@ -8,7 +7,7 @@ const FONTS = JSON.parse(readFileSync(new URL('glyphs.json', import.meta.url)));
 
 // GitHub's own neutral greys. Hierarchy comes from weight and contrast, never from hue.
 const THEMES = {
-  dark: { key: 'dark', panel: '#0d1117', line: '#30363d', ink: '#f0f6fc', dim: '#9198a1', faint: '#656c76' },
+  dark: { key: 'dark', panel: '#131313', line: '#30363d', ink: '#f0f6fc', dim: '#9198a1', faint: '#656c76' },
 };
 const REDUCE = '@media (prefers-reduced-motion:reduce){*{animation:none!important}}';
 
@@ -49,57 +48,30 @@ function panel(s, t, { flow = true } = {}) {
   s.add(`<path d="M${m} ${m + b}V${m}H${m + b}M${W - m - b} ${m}H${W - m}V${m + b}M${W - m} ${H - m - b}V${H - m}H${W - m - b}M${m + b} ${H - m}H${m}V${H - m - b}" fill="none" stroke="${t.faint}"/>`);
 }
 
-// ---------- a real TLS 1.3 hybrid handshake, played in order ----------
-const FLIGHT = [
-  ['ClientHello', 'key_share: X25519MLKEM768', 1],
-  ['ServerHello', 'key_share: X25519 + ML-KEM ciphertext', -1],
-  ['{Certificate}', 'chain of trust', -1],
-  ['{CertificateVerify}', 'sig: ML-DSA-65', -1],
-  ['{Finished}', 'server transcript MAC', -1],
-  ['{Finished}', 'client transcript MAC', 1],
-];
-function handshake(t) {
-  const W = 860, rowH = 42, top = 74, H = top + rowH * FLIGHT.length + 56, xa = 110, xb = W - 110;
-  const s = new Svg(W, H, 'A TLS 1.3 handshake with hybrid post-quantum key exchange');
-  const T = 14, n = FLIGHT.length, slot = 80 / n;
+// ---------- name banner, dark so it reads on both GitHub themes ----------
+function banner(t) {
+  const W = 860, H = 120;
+  const s = new Svg(W, H, 'Govind Dubey');
   panel(s, t, { flow: false });
-  s.add(s.text('CLIENT', xa, 46, 13, 'm', t.ink, { anchor: 'middle', track: 2 }));
-  s.add(s.text('SERVER', xb, 46, 13, 'm', t.ink, { anchor: 'middle', track: 2 }));
-  s.add(`<path d="M${xa} 58V${H - 50}M${xb} 58V${H - 50}" stroke="${t.faint}" stroke-dasharray="3 4"/>`);
-  FLIGHT.forEach(([msg, note, dir], i) => {
-    const y = top + rowH * i + 22, a = (slot * i).toFixed(1), b = (slot * i + slot).toFixed(1);
-    const [from, to] = dir > 0 ? [xa, xb] : [xb, xa];
-    s.css += `.m${i}{animation:m${i} ${T}s linear infinite}@keyframes m${i}{0%,${a}%{opacity:.18}${(+a + 1).toFixed(1)}%,97%{opacity:1}100%{opacity:.18}}`;
-    s.css += `.p${i}{opacity:0;animation:p${i} ${T}s linear infinite}@keyframes p${i}{0%,${a}%{opacity:0;transform:translateX(0)}${(+a + .5).toFixed(1)}%{opacity:1;transform:translateX(0)}${b}%{opacity:1;transform:translateX(${to - from}px)}${(+b + .5).toFixed(1)}%,100%{opacity:0;transform:translateX(${to - from}px)}}`;
-    s.add(`<g class="m${i}"><line x1="${xa + 2}" y1="${y}" x2="${xb - 2}" y2="${y}" stroke="${t.dim}"/><path d="M${to} ${y}l${-10 * dir} -5v10z" fill="${t.ink}"/>`);
-    const wm = s.width(msg, 'm', 14.5), wn = s.width(note, 'm', 12.5), lx = W / 2 - (wm + 14 + wn) / 2;
-    s.add(s.text(msg, lx, y - 8, 14.5, 'm', t.ink));
-    s.add(s.text(note, lx + wm + 14, y - 8, 12.5, 'm', t.dim));
-    s.add(`</g><circle class="p${i}" cx="${from}" cy="${y}" r="5" fill="${t.ink}"/>`);
-  });
-  s.css += `.ok{animation:ok ${T}s linear infinite}@keyframes ok{0%,80%{opacity:0}82%,97%{opacity:1}100%{opacity:0}}`;
-  s.add(s.text('QUANTUM-RESISTANT CHANNEL ESTABLISHED', W / 2, H - 22, 13, 'm', t.ink, { anchor: 'middle', track: 2, attrs: 'class="ok"' }));
-  save('handshake', t, s);
+  s.add(s.text('Govind Dubey', W / 2, 80, 62, 's', t.ink, { anchor: 'middle', track: -1 }));
+  save('name', t, s);
 }
 
-// ---------- signature seal ----------
-function seal(t) {
-  const pub = Buffer.from(readFileSync(`${root}identity.pub`, 'utf8').trim(), 'base64');
-  const fp = createHash('sha256').update(pub).digest('hex');
-  const W = 860, H = 128;
-  const s = new Svg(W, H, `This README is signed with ML-DSA-65. Key fingerprint ${fp}`);
+// ---------- PQBlocks box, with small Anatomy-kit structures ----------
+function pqblocks(t) {
+  const W = 860, H = 150;
+  const s = new Svg(W, H, 'PQBlocks: verified building blocks for the post-quantum transition');
   panel(s, t);
-  s.css += `.sp{animation:sp 12s linear infinite;transform-origin:68px 64px}@keyframes sp{to{transform:rotate(360deg)}}`;
-  s.add(`<g class="sp"><circle cx="68" cy="64" r="34" fill="none" stroke="${t.dim}" stroke-dasharray="6 5"/></g><circle cx="68" cy="64" r="25" fill="none" stroke="${t.ink}"/><path d="M57 65l8 8 14-17" fill="none" stroke="${t.ink}" stroke-width="3"/>`);
-  s.add(s.text('Post-quantum signed', 124, 46, 22, 's', t.ink));
-  s.add(s.text(`ML-DSA-65 (FIPS 204) / public key ${pub.length} bytes`, 124, 70, 12.5, 'm', t.dim));
-  s.add(s.text(`SHA-256 ${fp.slice(0, 32)}`, 124, 92, 12.5, 'm', t.ink));
-  s.add(s.text(`        ${fp.slice(32)}`, 124, 108, 12.5, 'm', t.ink));
-  save('seal', t, s);
+  const blocks = readFileSync(new URL('blocks.svg', import.meta.url), 'utf8').replace('<svg ', `<svg x="${W - 280}" y="19" width="250" height="112" `);
+  s.add(blocks);
+  s.add(s.text('PQBLOCKS', 34, 62, 36, 's', t.ink, { track: 1.5 }));
+  s.add(s.text('Verified building blocks for the post-quantum transition.', 34, 92, 16, 'b', t.dim));
+  s.add(s.text('29 open-source packages / Apache-2.0 / pqblocks.github.io', 34, 118, 12.5, 'm', t.ink));
+  save('pqblocks', t, s);
 }
 
 for (const t of Object.values(THEMES)) {
-  handshake(t);
-  seal(t);
+  banner(t);
+  pqblocks(t);
 }
-console.log('built handshake, seal');
+console.log('built pqblocks box');

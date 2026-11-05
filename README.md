@@ -1,60 +1,83 @@
 <p align="center">
-  <img width="100%" src="https://www.gitskins.com/api/section/hero?username=MrGovindDubey&theme=github-dark" alt="Govind Dubey">
+  <img width="100%" src="assets/name-dark.svg" alt="Govind Dubey">
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=IBM+Plex+Mono&size=20&pause=1400&color=9198A1&center=true&vCenter=true&width=830&height=44&lines=Cybersecurity+Professional;Post-Quantum+Cryptography;AI+and+Security;IoT+and+Connected+Systems" alt="Cybersecurity professional. Post-quantum cryptography. AI and security. IoT and connected systems.">
+  <img src="https://readme-typing-svg.demolab.com/?font=IBM+Plex+Mono&size=20&pause=1400&color=9198A1&center=true&vCenter=true&width=830&height=44&lines=Cybersecurity+Professional;Post-Quantum+Cryptography;Gen+AI+and+IoT;Development+and+Linux" alt="Cybersecurity professional. Post-quantum cryptography. Gen AI and IoT. Development and Linux.">
 </p>
 
 <p align="center">
-<a href="https://www.mrgovind.com"><img alt="mrgovind.com" src="https://img.shields.io/badge/mrgovind.com-1f2328?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
-<a href="https://linkedin.com/in/mr-govind-dubey"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-1f2328?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-<a href="mailto:Govinddubeycse@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-1f2328?style=for-the-badge&logo=gmail&logoColor=white"></a>
-<img alt="Profile views" src="https://komarev.com/ghpvc/?username=MrGovindDubey&style=for-the-badge&color=1f2328&label=PROFILE+VIEWS">
+<a href="https://www.mrgovind.com"><img alt="mrgovind.com" src="https://img.shields.io/badge/mrgovind.com-161b22?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
+<a href="https://linkedin.com/in/mr-govind-dubey"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-161b22?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+<a href="mailto:Govinddubeycse@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-161b22?style=for-the-badge&logo=gmail&logoColor=white"></a>
+<a href="https://pqblocks.github.io"><img alt="PQBlocks" src="https://img.shields.io/badge/PQBlocks-161b22?style=for-the-badge&logo=quantconnect&logoColor=white"></a>
 </p>
 
-I'm a cybersecurity professional working on what comes after today's cryptography: post-quantum systems, AI and IoT, alongside development and open source.
+<p align="center">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/MrGovindDubey?style=for-the-badge&logo=github&logoColor=white&label=stars&labelColor=161b22&color=30363d&affiliations=OWNER">
+  <img alt="Profile views" src="https://komarev.com/ghpvc/?username=MrGovindDubey&style=for-the-badge&color=30363d&label=PROFILE+VIEWS">
+</p>
+
+I'm a cybersecurity professional working on post-quantum cryptography, Gen AI, IoT, development and Linux.
 
 ## Focus
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
-**Quantum**
+**Post-Quantum**
 
-<img width="100%" src="assets/fig-quantum.gif" alt="Isometric dilution refrigerator, the cooling stack of a quantum computer, with qubits pulsing on the chip.">
+<img width="100%" src="assets/fig-post-quantum.gif" alt="Isometric populated circuit board with signals moving along its traces.">
 
-Post-quantum cryptography and the migration to it: lattice schemes, ML-KEM, ML-DSA and hybrid key exchange.
+ML-KEM, ML-DSA, hybrid key exchange and the migration to them.
 
 </td>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
 **Cybersecurity**
 
 <img width="100%" src="assets/fig-cybersecurity.gif" alt="Isometric name resolver, an animated model of a DNS lookup.">
 
-Attacking systems to learn how to defend them: penetration testing, malware behaviour and detection.
+Penetration testing, malware behaviour and detection.
+
+</td>
+<td width="33%" valign="top">
+
+**Gen AI**
+
+<img width="100%" src="assets/fig-gen-ai.gif" alt="Isometric AI accelerator with stacked memory around a large die.">
+
+Local-first models, agents and explainable detection.
 
 </td>
 </tr>
 <tr>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
-**Circuits**
+**IoT**
 
-<img width="100%" src="assets/fig-circuits.gif" alt="Isometric populated circuit board with signals moving along its traces.">
+<img width="100%" src="assets/fig-iot.gif" alt="Isometric IoT sensor node board with an antenna and moving signals.">
 
-IoT and connected hardware: securing constrained devices, where every byte of a key has a cost.
+Securing connected, constrained devices.
 
 </td>
-<td width="50%" valign="top">
+<td width="33%" valign="top">
 
-**Developers**
+**Development**
 
-<img width="100%" src="assets/fig-developers.gif" alt="Isometric branch and merge machine, an animated model of a Git merge.">
+<img width="100%" src="assets/fig-development.gif" alt="Isometric branch and merge machine, an animated model of a Git merge.">
 
-Building software and AI tools, with local-first models and open source contributions.
+Building software and contributing to open source.
+
+</td>
+<td width="33%" valign="top">
+
+**Linux**
+
+<img width="100%" src="assets/fig-linux.gif" alt="Isometric Linux server rack with blinking status lights.">
+
+KDE Plasma widgets, shell tooling and systems work.
 
 </td>
 </tr>
@@ -64,30 +87,52 @@ Building software and AI tools, with local-first models and open source contribu
 
 <img width="100%" src="https://gitlyy.vercel.app/api/contribution?username=MrGovindDubey&hide_border=true" alt="Contribution graph with the daily count in every cell.">
 
-<img align="top" width="49%" src="https://gitlyy.vercel.app/api/overview?username=MrGovindDubey&hide_border=true" alt="GitHub overview card."> <img align="top" width="49%" src="https://gitlyy.vercel.app/api/languages?username=MrGovindDubey&hide_border=true" alt="Languages card.">
+<img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MrGovindDubey&theme=github_dark" alt="Profile summary with contributions over the last year.">
 
-<p align="center"><img width="62%" src="https://streak-stats.demolab.com/?user=MrGovindDubey&hide_border=true&background=0D1117&ring=F0F6FC&fire=F0F6FC&currStreakLabel=F0F6FC&sideLabels=9198A1&dates=656C76&currStreakNum=F0F6FC&sideNums=F0F6FC&stroke=30363D" alt="Contribution streak card."></p>
+<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MrGovindDubey&theme=github_dark" alt="GitHub stats: stars, commits, pull requests, issues and contributions."> <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=MrGovindDubey&theme=github_dark&utcOffset=5.5" alt="Commits by hour of day.">
+
+<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=MrGovindDubey&theme=github_dark" alt="Top languages by repository."> <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=MrGovindDubey&theme=github_dark" alt="Top languages by commit.">
+
+<p align="center">
+  <img width="62%" src="https://streak-stats.demolab.com/?user=MrGovindDubey&hide_border=true&background=0D1117&ring=F0F6FC&fire=F0F6FC&currStreakLabel=F0F6FC&sideLabels=9198A1&dates=656C76&currStreakNum=F0F6FC&sideNums=F0F6FC&stroke=30363D" alt="Contribution streak card.">
+</p>
 
 <img width="100%" src="https://www.gitskins.com/api/section/heatmap?username=MrGovindDubey&theme=github-dark&style=snake" alt="Animated snake running across the contribution graph.">
 
-## The problem I care about
-
-Traffic recorded today can be decrypted by a quantum computer later, so key exchange has to change before that computer exists. This is the hybrid TLS 1.3 handshake that closes the gap:
-
-<img width="100%" src="assets/handshake-dark.svg" alt="TLS 1.3 handshake with X25519MLKEM768 hybrid key exchange and an ML-DSA-65 signature, played message by message.">
-
 ## Stack
 
-<img alt="Python" src="https://img.shields.io/badge/Python-30363d?style=flat-square&logo=python&logoColor=white"> <img alt="C" src="https://img.shields.io/badge/C-30363d?style=flat-square&logo=c&logoColor=white"> <img alt="C++" src="https://img.shields.io/badge/C%2B%2B-30363d?style=flat-square&logo=cplusplus&logoColor=white"> <img alt="Rust" src="https://img.shields.io/badge/Rust-30363d?style=flat-square&logo=rust&logoColor=white"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-30363d?style=flat-square&logo=javascript&logoColor=white"> <img alt="QML" src="https://img.shields.io/badge/QML-30363d?style=flat-square&logo=qt&logoColor=white"> <img alt="Bash" src="https://img.shields.io/badge/Bash-30363d?style=flat-square&logo=gnubash&logoColor=white"> <img alt="Linux" src="https://img.shields.io/badge/Linux-30363d?style=flat-square&logo=linux&logoColor=white"> <img alt="KDE Plasma" src="https://img.shields.io/badge/KDE_Plasma-30363d?style=flat-square&logo=kde&logoColor=white">
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,c,cpp,rust,ts,js,bash,php,html,css,qt,pytorch,react,nextjs,tailwind,threejs,nodejs,express,fastapi,electron,linux,arch,docker,cmake,git,github,githubactions,vitest&theme=dark&perline=14" alt="Technology icons">
+</p>
 
-## This page is signed
+**Languages**
 
-<img width="100%" src="assets/seal-dark.svg" alt="Post-quantum signed with ML-DSA-65.">
+<img alt="Python" src="https://img.shields.io/badge/Python-30363d?style=flat-square&logo=python&logoColor=white"> <img alt="C" src="https://img.shields.io/badge/C-30363d?style=flat-square&logo=c&logoColor=white"> <img alt="C++" src="https://img.shields.io/badge/C%2B%2B-30363d?style=flat-square&logo=cplusplus&logoColor=white"> <img alt="Rust" src="https://img.shields.io/badge/Rust-30363d?style=flat-square&logo=rust&logoColor=white"> <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-30363d?style=flat-square&logo=typescript&logoColor=white"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-30363d?style=flat-square&logo=javascript&logoColor=white"> <img alt="Bash" src="https://img.shields.io/badge/Bash-30363d?style=flat-square&logo=gnubash&logoColor=white"> <img alt="PHP" src="https://img.shields.io/badge/PHP-30363d?style=flat-square&logo=php&logoColor=white"> <img alt="QML" src="https://img.shields.io/badge/QML-30363d?style=flat-square&logo=qt&logoColor=white"> <img alt="HTML5" src="https://img.shields.io/badge/HTML5-30363d?style=flat-square&logo=html5&logoColor=white"> <img alt="CSS3" src="https://img.shields.io/badge/CSS3-30363d?style=flat-square&logo=css&logoColor=white">
+
+**AI and data**
+
+<img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-30363d?style=flat-square&logo=pytorch&logoColor=white"> <img alt="NumPy" src="https://img.shields.io/badge/NumPy-30363d?style=flat-square&logo=numpy&logoColor=white"> <img alt="pandas" src="https://img.shields.io/badge/pandas-30363d?style=flat-square&logo=pandas&logoColor=white"> <img alt="scikit-learn" src="https://img.shields.io/badge/scikit--learn-30363d?style=flat-square&logo=scikitlearn&logoColor=white"> <img alt="Hugging Face" src="https://img.shields.io/badge/Hugging_Face-30363d?style=flat-square&logo=huggingface&logoColor=white"> <img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-30363d?style=flat-square&logo=openai&logoColor=white"> <img alt="Anthropic" src="https://img.shields.io/badge/Anthropic-30363d?style=flat-square&logo=anthropic&logoColor=white"> <img alt="MCP" src="https://img.shields.io/badge/MCP-30363d?style=flat-square&logo=modelcontextprotocol&logoColor=white">
+
+**Web and backend**
+
+<img alt="React" src="https://img.shields.io/badge/React-30363d?style=flat-square&logo=react&logoColor=white"> <img alt="Next.js" src="https://img.shields.io/badge/Next.js-30363d?style=flat-square&logo=nextdotjs&logoColor=white"> <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-30363d?style=flat-square&logo=tailwindcss&logoColor=white"> <img alt="Three.js" src="https://img.shields.io/badge/Three.js-30363d?style=flat-square&logo=threedotjs&logoColor=white"> <img alt="GSAP" src="https://img.shields.io/badge/GSAP-30363d?style=flat-square&logo=greensock&logoColor=white"> <img alt="Framer Motion" src="https://img.shields.io/badge/Framer_Motion-30363d?style=flat-square&logo=framer&logoColor=white"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-30363d?style=flat-square&logo=nodedotjs&logoColor=white"> <img alt="Express" src="https://img.shields.io/badge/Express-30363d?style=flat-square&logo=express&logoColor=white"> <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-30363d?style=flat-square&logo=fastapi&logoColor=white">
+
+**Security and crypto**
+
+<img alt="ML-KEM" src="https://img.shields.io/badge/ML--KEM-30363d?style=flat-square"> <img alt="ML-DSA" src="https://img.shields.io/badge/ML--DSA-30363d?style=flat-square"> <img alt="Hybrid KEX" src="https://img.shields.io/badge/Hybrid_KEX-30363d?style=flat-square"> <img alt="pyca/cryptography" src="https://img.shields.io/badge/pyca/cryptography-30363d?style=flat-square&logo=python&logoColor=white"> <img alt="Hack The Box" src="https://img.shields.io/badge/Hack_The_Box-30363d?style=flat-square&logo=hackthebox&logoColor=white">
+
+**Platforms and tools**
+
+<img alt="Linux" src="https://img.shields.io/badge/Linux-30363d?style=flat-square&logo=linux&logoColor=white"> <img alt="Arch Linux" src="https://img.shields.io/badge/Arch_Linux-30363d?style=flat-square&logo=archlinux&logoColor=white"> <img alt="KDE Plasma" src="https://img.shields.io/badge/KDE_Plasma-30363d?style=flat-square&logo=kde&logoColor=white"> <img alt="Qt" src="https://img.shields.io/badge/Qt-30363d?style=flat-square&logo=qt&logoColor=white"> <img alt="Docker" src="https://img.shields.io/badge/Docker-30363d?style=flat-square&logo=docker&logoColor=white"> <img alt="Electron" src="https://img.shields.io/badge/Electron-30363d?style=flat-square&logo=electron&logoColor=white"> <img alt="CMake" src="https://img.shields.io/badge/CMake-30363d?style=flat-square&logo=cmake&logoColor=white"> <img alt="Git" src="https://img.shields.io/badge/Git-30363d?style=flat-square&logo=git&logoColor=white"> <img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub_Actions-30363d?style=flat-square&logo=githubactions&logoColor=white"> <img alt="Playwright" src="https://img.shields.io/badge/Playwright-30363d?style=flat-square&logo=playwright&logoColor=white"> <img alt="Vitest" src="https://img.shields.io/badge/Vitest-30363d?style=flat-square&logo=vitest&logoColor=white">
+
+## PQBlocks
+
+<a href="https://pqblocks.github.io"><img width="100%" src="assets/pqblocks-dark.svg" alt="PQBlocks: verified building blocks for the post-quantum transition. 29 open-source packages, Apache-2.0."></a>
 
 [![README signature](https://github.com/MrGovindDubey/MrGovindDubey/actions/workflows/verify.yml/badge.svg)](https://github.com/MrGovindDubey/MrGovindDubey/actions/workflows/verify.yml)
 
 <details>
-<summary>Verify it yourself</summary>
+<summary>This README is signed with ML-DSA-65. Verify it yourself</summary>
 
 ```sh
 git clone https://github.com/MrGovindDubey/MrGovindDubey && cd MrGovindDubey/tools
@@ -102,4 +147,4 @@ The signature covers `README.md` only, not the images. It proves the text is unc
 
 </details>
 
-<sub>Built with [Gitly](https://gitlyy.vercel.app), [GitSkins](https://www.gitskins.com), [Anatomy](https://github.com/wheresryan22/anatomy), [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg), [streak-stats](https://github.com/DenverCoder1/github-readme-streak-stats) and [shields.io](https://shields.io).</sub>
+<sub>Built with [Gitly](https://gitlyy.vercel.app), [github-profile-summary-cards](https://github.com/vn7n24fzkq/github-profile-summary-cards), [streak-stats](https://github.com/DenverCoder1/github-readme-streak-stats), [GitSkins](https://www.gitskins.com) (snake), [skill-icons](https://github.com/tandpfun/skill-icons), [shields.io](https://shields.io), [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg) and [Anatomy](https://github.com/wheresryan22/anatomy).</sub>
