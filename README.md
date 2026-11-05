@@ -151,4 +151,4 @@ The signature covers `README.md` only, not the images. It proves the text is unc
 
 </details>
 
-<sub>Built with [Gitly](https://gitlyy.vercel.app), [github-profile-summary-cards](https://github.com/vn7n24fzkq/github-profile-summary-cards), [streak-stats](https://github.com/DenverCoder1/github-readme-streak-stats), [GitSkins](https://www.gitskins.com) (snake), [skill-icons](https://github.com/tandpfun/skill-icons), [shields.io](https://shields.io), [readme-typing-svg](https://github.com/DenverCoder1/readme-typing-svg) and [Anatomy](https://github.com/wheresryan22/anatomy).</sub>
+
