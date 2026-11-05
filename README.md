@@ -151,4 +151,3 @@ The signature covers `README.md` only, not the images. It proves the text is unc
 
 </details>
 
-
