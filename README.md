@@ -18,7 +18,7 @@
   <img height="38" alt="Profile views" src="https://komarev.com/ghpvc/?username=MrGovindDubey&style=for-the-badge&color=30363d&label=PROFILE+VIEWS">
 </p>
 
-I'm a cybersecurity professional working on post-quantum cryptography, Gen AI, IoT, development and Linux.
+Cybersecurity professional working on post-quantum cryptography, Gen AI, IoT, development and Linux.
 
 ## Focus
 
