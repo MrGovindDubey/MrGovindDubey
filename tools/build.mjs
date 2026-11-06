@@ -1,6 +1,6 @@
 // Renders the monochrome images in assets/, dark to match the Gitly and GitSkins cards. No dependencies; text is vector paths.
 // Static: run by hand when the content changes. Live cards on the page come from Gitly and GitSkins.
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 const root = new URL('..', import.meta.url).pathname;
 const FONTS = JSON.parse(readFileSync(new URL('glyphs.json', import.meta.url)));
@@ -55,15 +55,6 @@ function banner(t) {
   const s = new Svg(W, H, 'Govind Dubey: cybersecurity, post-quantum, Gen AI, IoT, development and Linux');
   panel(s, t);
   s.add(readFileSync(new URL('name-structures.svg', import.meta.url), 'utf8').replace('<svg ', `<svg x="${W - 500}" y="7" width="480" height="196" `));
-  // PLACEHOLDER: save your own icon as tools/board-icon.svg (light colour, no script) and it sits on the bottom-left plate.
-  const icon = new URL('board-icon.svg', import.meta.url);
-  if (existsSync(icon)) {
-    const svg = readFileSync(icon, 'utf8').replace(/<\?xml[^>]*>\s*/, '').replace(/<!DOCTYPE[^>]*>\s*/i, '');
-    if (/<script/i.test(svg)) throw new Error('board-icon.svg must not contain a script');
-    const open = svg.match(/<svg[^>]*>/)[0];
-    s.add(`<circle cx="620" cy="157" r="16" fill="${t.panel}" stroke="${t.dim}"/>`);
-    s.add(svg.replace(open, open.replace(/\s(width|height|x|y)="[^"]*"/g, '').replace('<svg', '<svg x="609" y="146" width="22" height="22"')));
-  }
   s.add(s.text('GOVIND DUBEY', 34, 96, 40, 's', t.ink, { track: 1.2 }));
   s.add(s.text('Cybersecurity professional', 34, 126, 16, 'b', t.dim));
   s.add(s.text('Post-Quantum / Gen AI / IoT / Linux', 34, 154, 12.5, 'm', t.ink));
