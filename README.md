@@ -146,7 +146,7 @@ npm ci --ignore-scripts && node verify.mjs
 ```text
 key fingerprint (SHA-256): c646153c21b6f66110129ffcdef19c075d11bf825a858d1cc19e6075284228db
 ```
-
+[![M8ven Score](https://m8ven.ai/badge/mcp/pqblocks-pqblocks-mcp-vqbf6x?v=79aca79d6dff4989a5d9d0ae38c48430)](https://m8ven.ai/mcp/pqblocks-pqblocks-mcp-vqbf6x?s=readme)
 The signature covers `README.md` only, not the images. It proves the text is unchanged since the key holder signed it. The key stays offline; CI re-verifies on every push.
 
 </details>
