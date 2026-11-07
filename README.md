@@ -1,4 +1,3 @@
-[![M8ven Score](https://m8ven.ai/badge/mcp/pqblocks-pqblocks-mcp-vqbf6x?v=79aca79d6dff4989a5d9d0ae38c48430)](https://m8ven.ai/mcp/pqblocks-pqblocks-mcp-vqbf6x?s=readme)
 <p align="center">
   <img width="100%" src="assets/name-dark.svg" alt="Govind Dubey" title="Inside this repository machine:&#10;- File tree&#10;- Commit graph and branches&#10;- Pull request gate&#10;- CI pipeline rack&#10;- Object store&#10;- Release tag&#10;- Contribution grid">
 </p>
